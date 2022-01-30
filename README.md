@@ -28,3 +28,14 @@ This section presents how the project was structured and prepared to meet requir
 A simulation environment was specifically created for RTAB-Map. RTAB-Map requires a feature rich environment. This implies a good variety in patterns and structure of visual imagery. The environment shown below uses a varied pattern on walls and internal walls which provide edges and break up the camera's view.
 
 ![world_rviz](</images/basic_environment.png>)
+
+## Simulation environment
+A simulation environment was specifically created for RTAB-Map. RTAB-Map requires a feature rich environment. This implies a good variety in patterns and structure of visual imagery. The environment shown below uses a varied pattern on walls and internal walls which provide edges and break up the camera's view.
+
+## Robot
+A simple robot was created using two powered wheels. This robot has been used in prior projects. The modification was to add a link and joint to represent an RGB-D or depth camera. An RGB camera already existed on the front of the robot and the RGB and Depth cameras are co-located. The difference between the two is that the depth camera uses a different view frame from the rgb camera. In the depth frame sensing is in the z-axis direction, i.e. forward, y-axis points down and x-axis points right. This frame is shown in the image below. RGB uses a regular x-axis forward convention for sensing.
+
+![world_rviz](</images/bot_in_gazebo.png>)
+
+![world_rviz](</images/bot_links_rviz.png>)
+
