@@ -37,5 +37,5 @@ A simple robot was created using two powered wheels. This robot has been used in
 
 ![world_rviz](</images/small_bot_in_gazebo.png>)
 
-![world_rviz](</images/bot_links_rviz.png>)
+![world_rviz](</images/small_bot_links_rviz.png>)
 
