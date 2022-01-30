@@ -45,3 +45,15 @@ The screenshot belows shows the robot in an empty world facing a cylindrical obj
 
 ![world_rviz](</images/rqt_graph_scan_depth.png>)
 
+rqt_graph shows that the robot in gazebo is publishing on /scan, /camera/depth and /camera/rgb. These are the default topics. In retrospect and if this was part of a larger project, my_robot should publish in its own namespace and remap for rtab-map, but this works.
+
+# Results
+Part of this project is to investigate how the environment affect performance of rtab-map. The robot was teleoperated counter-clockwise two times in the bare environment shown above.
+
+![world_rviz](</images/bare_graph_view.png>)
+
+![world_rviz](</images/bare_features.png>)
+
+![world_rviz](</images/bare_ConVuew_closure_50.png>)
+
+![world_rviz](</images/bare_features_lpclose_50.png>)
