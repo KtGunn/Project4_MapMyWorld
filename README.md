@@ -54,6 +54,6 @@ Part of this project is to investigate how the environment affect performance of
 
 ![world_rviz](</images/bare_features.png>)
 
-![world_rviz](</images/bare_ConVuew_closure_50.png>)
+![world_rviz](</images/bare_ConVue_closure_50.png>)
 
 ![world_rviz](</images/bare_features_lpclose_50.png>)
