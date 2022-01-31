@@ -48,12 +48,19 @@ The screenshot belows shows the robot in an empty world facing a cylindrical obj
 rqt_graph shows that the robot in gazebo is publishing on /scan, /camera/depth and /camera/rgb. These are the default topics. In retrospect and if this was part of a larger project, my_robot should publish in its own namespace and remap for rtab-map, but this works.
 
 # Results
-Part of this project is to investigate how the environment affect performance of rtab-map. The robot was teleoperated counter-clockwise two times in the bare environment shown above.
+Part of this project is to investigate how the environment affect performance of rtab-map. The robot was teleoperated clockwise two times in the bare environment shown above.
 
 ![world_rviz](</images/bare_graph_view.png>)
 
+The above image shows that a remarkably good map has been created with only two loops. This is surprising since the environment is 'bare,' that is it only a walled in space.  The bottom line shows that nineteen (19) loop closures were obtained.
+
 ![world_rviz](</images/bare_features.png>)
+
+The above image shows that because the environment was mostly bare there were sections of the robot's trajectory where no feature points were detected and stored. It also shows that the combination of the patterned wallls together with the edges of the interior wall created features the rtab-map method could latch onto. The image demnstrates this; the left image #id 40 registerd no features. It is not until the robot approached the edge of the left wall that feature points are registered in image #id 48. Inbetween, no feature points were registered. Below we see that finally image $id 50 generated a loop closure.
 
 ![world_rviz](</images/bare_ConVue_closure_50.png>)
 
+The constrained image view above shows where a loop closure, one of nineteen, was obtained. Below we see the two images saved from the two loops where the loop closure match was obtained.
+
 ![world_rviz](</images/bare_features_lpclose_50.png>)
+
