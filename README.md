@@ -64,3 +64,8 @@ The constrained image view above shows where a loop closure, one of nineteen, wa
 
 ![world_rviz](</images/bare_features_lpclose_50.png>)
 
+Finally, we have the 3D map constructed from the mapping operation. We notice the holes in the map where more features are needed to fill them in.
+
+![world_rviz](</images/bare_3dmap.png>)
+
+
