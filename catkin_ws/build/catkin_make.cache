@@ -1,2 +1,0 @@
-my_robot:teleop_twist_keyboard
--DCATKIN_DEVEL_PREFIX=/home/kris/ROS/RSND/Project4_MapMyWorld/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kris/ROS/RSND/Project4_MapMyWorld/catkin_ws/install -G Unix Makefiles
