@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<robot name="my_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- ****************** ROBOT BASE FOOTPRINT ***************************  -->
+  <!-- Define the center of the main robot chassis projected on the ground -->
+  <link name="base_footprint">
+  </link>
+  
+  <!-- ********************** ROBOT BASE *********************************  -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="-0.10 0 0" rpy="${pi/2} 0 ${pi/2}"/>
+      <geometry>
+	<mesh filename="file://$(find my_robot)/meshes/my_robot/robot_base.stl" />
+      </geometry>
+      <material name="White">
+	<color rgba="${255/255} ${255/255} ${255/255} 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+	<box size="0.70 0.30 0.01"/>
+      </geometry>
+    </collision>
+    
+  </link>
+  
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+  </gazebo>
+  
+  <!-- The base footprint of the robot is located underneath the chassis -->
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+  </joint>
+</robot>

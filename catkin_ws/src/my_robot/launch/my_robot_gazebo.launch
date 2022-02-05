@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <!-- Set parameter 'robot_description' on the Rosmaster server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'" />
+
+  <!-- Node: JOINT_STATE_PUBLISHER -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
+
+  <!-- Node: ROBOT_STATE_PUBLISHER -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen"/>
+  
+</launch>
