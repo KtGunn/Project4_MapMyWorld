@@ -5,7 +5,7 @@ This is Project #4 of Udacity's Robotics Software Nanodegree program (RSND). The
 
 RTAB is an advanced Graph-Based SLAM technique. RTAB-Map uses computervision and sensor fusion techniques to map an environment and localize a robot. Input to the method are odometry and sensor data, RGB-D images and lidar scans. Output is a map and the robot's trajectory. RTAB-Map obtains loop-closure using a bag-of-words approach to match new images with prior saved images.
 
-![world_rviz](</images/mapping.gif>)
+![world_rviz](</images/mapping_run.gif>)
 
 ## Specific Objectives
 A few criteria are to be met to complete this project:
