@@ -16,7 +16,11 @@
   <include file="$(find my_robot)/launch/my_robot_gazebo.launch"/>
 
   <!-- World File :: World File :: World File :: World File -->
-  <arg name="world_file" default="$(find my_robot)/worlds/rtab_world.world"/>
+  <!-- Full world -->
+  <arg name="world_file" default="$(find my_robot)/worlds/busy_world.world"/>
+
+  <!-- 'rtab_world' is the empty or bare environment -->
+  <!-- arg name="world_file" default="$(find my_robot)/worlds/rtab_world.world"/ -->
   
   <!-- Launch Gazebo World -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
