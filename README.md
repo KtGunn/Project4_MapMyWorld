@@ -50,15 +50,20 @@ The screenshot belows shows the robot in an empty world facing a cylindrical obj
 rqt_graph shows that the robot in gazebo is publishing on /scan, /camera/depth and /camera/rgb. These are the default topics. In retrospect and if this was part of a larger project, my_robot should publish in its own namespace and remap for rtab-map, but this works.
 
 # Results
-Part of this project is to investigate how the environment affect performance of rtab-map. The robot was teleoperated clockwise two times in the bare environment shown above.
+
+Part of this project is to investigate how the environment affects performance of rtab-map. Two scenarios of using the same environment were investigated. First the bare-bones environment was mapped, second the same environment with numerous objects installed was mapped.
+
+## Minimal environment
+
+The robot was teleoperated clockwise two times in the bare environment (see 'Gazebo' image above). Results are presented in the 'Graph view' image below.
 
 ![world_rviz](</images/bare_graph_view.png>)
 
-The above image shows that a remarkably good map has been created with only two loops. This is surprising since the environment is 'bare,' that is it only a walled in space.  The bottom line shows that nineteen (19) loop closures were obtained.
+The 'Graph view' image shows that a remarkably good map was created with only two loops. This is surprising since the environment is 'bare,' that is it only a walled in space.  The bottom line shows that nineteen (19) loop closures were obtained.
 
 ![world_rviz](</images/bare_features.png>)
 
-The above image shows that because the environment was mostly bare there were sections of the robot's trajectory where no feature points were detected and stored. It also shows that the combination of the patterned wallls together with the edges of the interior wall created features the rtab-map method could latch onto. The image demnstrates this; the left image #id 40 registerd no features. It is not until the robot approached the edge of the left wall that feature points are registered in image #id 48. Inbetween, no feature points were registered. Below we see that finally image $id 50 generated a loop closure.
+Because the environment was mostly bare there were sections of the robot's trajectory where no feature points were detected and stored (see image above). Also, the combination of the patterned wallls together with the edges of the interior wall created features the rtab-map method could latch onto. The image demonstrates this; the left image #id 40 registerd no features. It is not until the robot approached the edge of the left wall that feature points are registered in image #id 48. Inbetween, no feature points were registered. Below we see that finally image #id 50 generated a loop closure.
 
 ![world_rviz](</images/bare_ConVue_closure_50.png>)
 
@@ -66,8 +71,27 @@ The constrained image view above shows where a loop closure, one of nineteen, wa
 
 ![world_rviz](</images/bare_features_lpclose_50.png>)
 
-Finally, we have the 3D map constructed from the mapping operation. We notice the holes in the map where more features are needed to fill them in.
+Finally, we have the 3D map constructed from the mapping operation. We notice the holes in the map where more features are needed to fill them in. Alternatively, a longer mapping run can create a fuller map.
 
 ![world_rviz](</images/bare_3dmap.png>)
+
+## Occupied environment
+
+Numerous objects were installed in the simulation environment as shown below. The idea is to give the rtabmap algorithm a feature rich environment to sense and thus obtain an accurate map quickly.
+
+![world_rviz](</images/complete_2sides_gazebo_endofmapping.png>)
+
+A mapping run of two teleoperated figure-eight patterns was done.
+
+![world_rviz](</images/gravue_bosides_2fig8_40LS.png>)
+
+The image above shows the map that results and that forty (40) loop closures were found. The resulting 3d map is below.
+
+![world_rviz](</images/3d_bosides_2fig8.png>)
+
+To obtain a full reconstruction of the space, more than the two mapping loops are needed. It turns out this space is challenging to map. The alternating pattern of brick, tiles and wood panels in vertical sections provides many opportunities for erroneous loop closures. The patterns are feture rich but the features repeat at various locations in the space.
+
+
+
 
 
