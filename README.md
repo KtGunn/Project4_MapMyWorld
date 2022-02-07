@@ -23,8 +23,7 @@ This section presents how the project was structured and prepared to meet requir
 
 - the simulation environment created in Gazebo;
 - augmentation of the robot with an RGB-D camera;
-- re-mapping of rtopics
-- launch files
+- messages and topics
 
 ## Simulation environment
 A simulation environment was specifically created for RTAB-Map. RTAB-Map requires a feature rich environment. This implies a good variety in patterns and structure of visual imagery. The environment shown below uses a varied pattern on walls and internal walls which provide edges and break up the camera's view.
