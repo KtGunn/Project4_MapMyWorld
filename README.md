@@ -91,7 +91,12 @@ The image above shows the map that results and that forty (40) loop closures wer
 
 To obtain a full reconstruction of the space, more than the two mapping loops are needed. It turns out this space is challenging to map. The alternating patterns of brick, tiles and wood panels in straight vertical sections provides many opportunities for erroneous loop closures. The patterns are feature rich but the features repeat at various locations in the space. Of course rtabmap-databaseViewer can be used to reject incorrect loop closures and insert others that the algorithm missed.
 
+# Localization
 
+A minmal test of localization with the generated rtab map was performed. The move_base package was added to the system in a localization launch file that also set the parameters of rtab-map to operate in localization mode. This means that rtab-map supplies a map to the move_base package. Below is a view of rqt_graph with the needed nodes and packages.
 
+![world_rviz](</images/rqt_graph_localization.png>)
 
+Finally, below is a short video clip of the robot moving to a 2d navigation goal.
 
+![world_rviz](</images/localization.gif>)
