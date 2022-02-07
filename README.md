@@ -89,7 +89,7 @@ The image above shows the map that results and that forty (40) loop closures wer
 
 ![world_rviz](</images/3d_bosides_2fig8.png>)
 
-To obtain a full reconstruction of the space, more than the two mapping loops are needed. It turns out this space is challenging to map. The alternating pattern of brick, tiles and wood panels in vertical sections provides many opportunities for erroneous loop closures. The patterns are feture rich but the features repeat at various locations in the space.
+To obtain a full reconstruction of the space, more than the two mapping loops are needed. It turns out this space is challenging to map. The alternating patterns of brick, tiles and wood panels in straight vertical sections provides many opportunities for erroneous loop closures. The patterns are feature rich but the features repeat at various locations in the space. Of course rtabmap-databaseViewer can be used to reject incorrect loop closures and insert others that the algorithm missed.
 
 
 
