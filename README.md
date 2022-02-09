@@ -27,7 +27,6 @@ This section presents how the project was structured and prepared to meet requir
 - the simulation environment created in Gazebo;
 - augmentation of the robot with an RGB-D camera;
 - messages and topics
-- launch files
 
 ## Simulation environment
 
@@ -55,21 +54,45 @@ The screenshot belows shows the robot in an empty world facing a cylindrical obj
 
 rqt_graph shows that the robot in gazebo is publishing on /scan, /camera/depth and /camera/rgb. These are the default topics. In retrospect and if this was part of a larger project, my_robot should publish in its own namespace and remap for rtab-map, but this works.
 
+# Install & run
+
+Here are instructions for downloading and installing the project and lauching it. The application was developed in Linux Ubuntu version 16.04 with ROS distribution Kinetic. The application depends on a few packages that must be present: navigation, move_base and rtabmap_ros. These can be installed using,
+
+> sudo apt install ros-kinetic-<name_of_required_package>
+
+The repository should be cloned
+
+> git clone https://github.com/KtGunn/Project4_MapMyWorld.git
+
+The user must navigate to the catkin_ws sub-directory. In case the two directories 'devel' and 'setup' are present, they should be removed, followed by the compilation command, catkin_make
+
+> rm -rf devel setup && catkin_make
+
+To bring up the application the following commands are issued, each in its own console,
+
+> roslaunch my_robot <a_launch_file>
+
+As explained in the following section there are numerous nodes that must be up and running. 'world.laun
+
 ## Launch files
 
 Several launch files were prepared. Three separate files are normally invoked when running this application: Gazebo+Rviz brings up the simulation environment and data visualizer, teleoperator to move the robot my keyboard commands, rtabmap for mapping or map source for localization.
 
-- world.launch
-  This launch file is normally brought up first and it start Gazebo and RViz. It will bring up the full environmen (called 'busy_world') but the original world catn be commented out and the full world commented to bring up the bare envirionment.
+- **world.launch**
 
-- my_robot_gazebo.launch
-  This file is called by world.launch and brings the robot up in Gazebo along with nodes to publish the robot's state.
+> This launch file is normally brought up first and it start Gazebo and RViz. It will bring up the full environmen (called 'busy_world') but the original world catn be commented out and the full world commented to bring up the bare envirionment.
 
-- mapping.launch
-  This file brings up rtabmap which performs the mapping.
+- **my_robot_gazebo.launch**
 
-- localization.move_base.launch
-  This file is used for localization (optional) after mapping has been done. It also brings up move_base, which does the actual navigating of the robot. In this mode, rtabmap's main purpose is to supply the map to move_base.
+> This file is called by world.launch and brings the robot up in Gazebo along with nodes to publish the robot's state.
+
+- **mapping.launch**
+
+> This file brings up rtabmap which performs the mapping.
+
+- **localization.move_base.launch**
+
+> This file is used for localization (optional) after mapping has been done. It also brings up move_base, which does the actual navigating of the robot. In this mode, rtabmap's main purpose is to supply the map to move_base.
 
 Another important node is needed i.e. teleop_twist_keyboard. This node is brought up using rosrun.
 
