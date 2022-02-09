@@ -56,7 +56,7 @@ rqt_graph shows that the robot in gazebo is publishing on /scan, /camera/depth a
 
 # Install & run
 
-Here are instructions for downloading and installing the project and lauching it. The application was developed in Linux Ubuntu version 16.04 with ROS distribution Kinetic. The application depends on a few packages that must be present: navigation, move_base and rtabmap_ros. These can be installed using,
+Here are instructions for downloading and installing the project and launching it. The application was developed in Linux Ubuntu version 16.04 with ROS distribution Kinetic. The application depends on a few packages that must be present: navigation, move_base and rtabmap_ros. These can be installed using,
 
 > sudo apt install ros-kinetic-<name_of_required_package>
 
@@ -68,7 +68,7 @@ The user must navigate to the catkin_ws sub-directory. In case the two directori
 
 > rm -rf devel setup && catkin_make
 
-To bring up the application the following commands are issued, each in its own console,
+To bring up the application commands are issued each in its own console, such as,
 
 > roslaunch my_robot <a_launch_file>
 
