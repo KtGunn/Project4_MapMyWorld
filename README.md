@@ -100,6 +100,10 @@ Another important node is needed i.e. teleop_twist_keyboard. This node is brough
 
 Part of this project is to investigate how the environment affects performance of rtab-map. Two scenarios of using the same environment were investigated. First the bare-bones environment was mapped, second the same environment with numerous objects installed was mapped.
 
+## Database files
+
+Two database files were created and are found in the dbase sub-directory of catkin_w/src/my_robot. These files are stored in zipped format (file extension ".zip") to save space. To peruse or use them they must be unzipped. They both unzip to the file name **rtabmap.db**. The unzipped files can be deleted after use
+
 ## Minimal environment
 
 The robot was teleoperated clockwise two times in the bare environment (see 'Gazebo' image above). Results are presented in the 'Graph view' image below.
@@ -140,10 +144,12 @@ To obtain a full reconstruction of the space, more than the two mapping loops ar
 
 # Localization
 
-A minmal test of localization with the generated rtab map was performed. The move_base package was added to the system in a localization launch file that also set the parameters of rtab-map to operate in localization mode. This means that rtab-map supplies a map to the move_base package. Below is a view of rqt_graph with the needed nodes and packages.
+Localization using the maps created is an optional task in this project. Modest time  and effort was spent on this part. The motivation here was to go through and learn the process of using an rtab-map package created database in localization. This is important because the reason for mapping in the first place is to use the resulting map in navigation.
+
+The move_base package was added to the system in a localization launch file that also set the parameters of rtab-map to operate in localization mode. This means that rtab-map supplies a map to the move_base package. Below is a view of rqt_graph with the needed nodes and packages.
 
 ![world_rviz](</images/rqt_graph_localization.png>)
 
-Finally, below is a short video clip of the robot moving to a 2d navigation goal.
+A test of localization with the generated rtab map was performed. Below is a short video clip of the robot moving to a 2d navigation goal. It was observed in testing that the robot would at times become lost then regain its location and proceed. This behaviour was observed already above in the mapping operation. The environment with its alternating wall patterns although providing a feature rich pattern provides many opportunities for incorrect matching with the seeminly same pattern found in various locations. 
 
 ![world_rviz](</images/localization.gif>)
