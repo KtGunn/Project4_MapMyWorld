@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is Project #4 of Udacity's Robotics Software Nanodegree program (RSND). The project's objective is to learn the RTAB-Map (Real-Time Appearance-Base Mapping) SLAM (simultaenous localization and mapping) package of ROS.
+This is Project #4 of Udacity's Robotics Software Nanodegree program (RSND). The project's objective is to learn the RTAB-Map (Real-Time Appearance-Based Mapping) SLAM (simultaenous localization and mapping) package of ROS.
 
 RTAB is an advanced Graph-Based SLAM technique. RTAB-Map uses computervision and sensor fusion techniques to map an environment and localize a robot. Input to the method are odometry and sensor data, RGB-D images and lidar scans. Output is a map and the robot's trajectory. RTAB-Map obtains loop-closure using a bag-of-words approach to match new images with prior saved images.
 
@@ -44,7 +44,7 @@ A simple robot was created using two powered wheels. This robot has been used in
 
 ## Messages and topics
 
-The screenshot belows shows the robot in an empty world facing a cylindrical object. Another screenshot shows corresponding the rgb image, lidar scan and depth cloud displayed in RViz. Finally, a screenshot of rqt_graph shows the connection of topics between modules.
+The screenshot belows shows the robot in an empty world facing a cylindrical object. Another screenshot shows the corresponding rgb image, lidar scan and depth cloud displayed in RViz. Finally, a screenshot of rqt_graph shows the connection of topics between modules.
 
 ![world_rviz](</images/rob_cyl_gazebo.png>)
 
@@ -72,7 +72,7 @@ To bring up the application commands are issued each in its own console, such as
 
 > roslaunch my_robot <a_launch_file>
 
-As explained in the following section there are numerous nodes that must be up and running. 'world.laun
+As explained in the following section there are numerous nodes that must be up and running.
 
 ## Launch files
 
@@ -80,7 +80,7 @@ Several launch files were prepared. Three separate files are normally invoked wh
 
 - **world.launch**
 
-> This launch file is normally brought up first and it start Gazebo and RViz. It will bring up the full environmen (called 'busy_world') but the original world catn be commented out and the full world commented to bring up the bare envirionment.
+> This launch file is normally brought up first and it starts Gazebo and RViz. It will bring up the full environment (called 'busy_world') but the original world can be commented out and the full world commented in to bring up the bare environment.
 
 - **my_robot_gazebo.launch**
 
@@ -102,7 +102,7 @@ Part of this project is to investigate how the environment affects performance o
 
 ## Database files
 
-Two database files were created and are found in the dbase sub-directory of catkin_w/src/my_robot. These files are stored in zipped format (file extension ".zip") to save space. To peruse or use them they must be unzipped. They both unzip to the file name **rtabmap.db**. The unzipped files can be deleted after use
+Two database files were created and are found in the dbase sub-directory of catkin_w/src/my_robot. These files are stored in zipped format (file extension ".zip") to save space. To peruse or use them they must be unzipped. They both unzip to the file name **rtabmap.db**. The unzipped files can be deleted after use.
 
 ## Minimal environment
 
@@ -114,7 +114,7 @@ The 'Graph view' image shows that a remarkably good map was created with only tw
 
 ![world_rviz](</images/bare_features.png>)
 
-Because the environment was mostly bare there were sections of the robot's trajectory where no feature points were detected and stored (see image above). Also, the combination of the patterned wallls together with the edges of the interior wall created features the rtab-map method could latch onto. The image demonstrates this; the left image #id 40 registerd no features. It is not until the robot approached the edge of the left wall that feature points are registered in image #id 48. Inbetween, no feature points were registered. Below we see that finally image #id 50 generated a loop closure.
+Because the environment was mostly bare there were sections of the robot's trajectory where no feature points were detected and stored (see image above). Also, the combination of the patterned wallls together with the edges of the interior wall created features the rtab-map method could latch onto. The image demonstrates this; the left image #id 40 registered no features. It is not until the robot approached the edge of the rightt wall that feature points are registered in image #id 48. Inbetween, no feature points were registered. Below we see that finally image #id 50 generated a loop closure.
 
 ![world_rviz](</images/bare_ConVue_closure_50.png>)
 
@@ -140,7 +140,7 @@ The image above shows the map that results and that forty (40) loop closures wer
 
 ![world_rviz](</images/3d_bosides_2fig8.png>)
 
-To obtain a full reconstruction of the space, more than the two mapping loops are needed. It turns out this space is challenging to map. The alternating patterns of brick, tiles and wood panels in straight vertical sections provides many opportunities for erroneous loop closures. The patterns are feature rich but the features repeat at various locations in the space. Of course rtabmap-databaseViewer can be used to reject incorrect loop closures and insert others that the algorithm missed.
+To obtain a full reconstruction of the space, more than the two mapping loops are needed. It turns out this space is challenging to map. The alternating patterns of brick, tiles and wood panels in straight vertical sections provides many opportunities for erroneous loop closures. The patterns are feature rich but the features repeat at various locations in the space. rtabmap-databaseViewer can be used to reject incorrect loop closures and insert others that the algorithm missed in a manual process. The user hopes to avoid needing to do this but it is a powerful feature or tool of the rtab-map mapping method that can tune a map to be very accurate.
 
 # Localization
 
@@ -150,6 +150,6 @@ The move_base package was added to the system in a localization launch file that
 
 ![world_rviz](</images/rqt_graph_localization.png>)
 
-A test of localization with the generated rtab map was performed. Below is a short video clip of the robot moving to a 2d navigation goal. It was observed in testing that the robot would at times become lost then regain its location and proceed. This behaviour was observed already above in the mapping operation. The environment with its alternating wall patterns although providing a feature rich pattern provides many opportunities for incorrect matching with the seeminly same pattern found in various locations. 
+A test of localization with the generated rtab map was performed. Below is a short gif clip of the robot moving to a 2d navigation goal. It was observed in testing that the robot would at times become lost then regain its location and proceed. This behaviour was observed already above in the mapping operation. The environment with its alternating wall patterns although providing a feature rich pattern provides many opportunities for incorrect matching with the seemingly same pattern found in various locations. 
 
 ![world_rviz](</images/localization.gif>)
