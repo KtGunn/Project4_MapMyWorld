@@ -72,7 +72,7 @@ To bring up the application commands are issued each in its own console, such as
 
 > roslaunch my_robot <a_launch_file>
 
-Importantly, before issuing roslaunch or rosrun commands the setup script must be sources in the catkin_ws idrectory,
+Importantly, before issuing roslaunch or rosrun commands the setup script must be sources in the catkin_ws directory,
 
 > source devel/setup.bash
 
